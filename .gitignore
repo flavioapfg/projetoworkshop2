@@ -1,0 +1,19 @@
+# Dependencies & build
+node_modules
+dist
+
+# OS / editor
+.DS_Store
+*.local
+.vscode
+.idea
+
+# Env & secrets — never commit real keys
+.env
+.env.*
+!.env.example
+
+# Logs / caches
+npm-debug.log*
+.vite
+coverage
