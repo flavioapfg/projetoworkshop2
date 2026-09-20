@@ -7,15 +7,15 @@ const inputClass =
 
 export default function Cadastro() {
   const navigate = useNavigate()
-  const [mode, setMode] = useState('signup')
+  const [mode, setMode] = useState('login')
   const [showPassword, setShowPassword] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [form, setForm] = useState({
     name: '',
     handle: '',
-    email: '',
-    password: '',
+    email: 'admin@admin.com',
+    password: '@admin',
     terms: false,
   })
 
@@ -320,7 +320,9 @@ export default function Cadastro() {
               Uma rede social onde viver bem vira conversa, comunidade e constância.
             </p>
             <p className="text-[11px] text-center text-[#9AA3B2] mt-3">
-              Demo:{' '}
+              Demo login: <span className="font-medium text-[#5C6675]">admin@admin.com</span> /{' '}
+              <span className="font-medium text-[#5C6675]">@admin</span>
+              {' · '}
               <Link className="underline hover:text-[#5C6675]" to="/home">
                 ir ao feed
               </Link>
