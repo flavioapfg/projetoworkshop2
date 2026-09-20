@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Criar - Goodsy</title>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              lime: '#D2F542',
+              limeDark: '#BCE82E',
+              limeSoft: '#F3FCD2',
+              limeIcon: '#8EB500',
+              grayBg: '#F4F5F7',
+              modalBg: '#FFFFFF',
+              closeBg: '#EEF2F6',
+              borderLight: '#EDF1F7',
+              textPrimary: '#1E232A',
+              textSecondary: '#6B7280',
+            }
+          },
+          borderRadius: {
+            '3xl': '24px',
+            '4xl': '28px',
+          },
+          boxShadow: {
+            'modal': '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.05)',
+          }
+        }
+      }
+    };
+  </script>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="custom-decorations">
+    /* Subtle transitions and modal styling */
+    .option-card {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .option-card:hover {
+      background-color: #FAFCF5;
+      border-color: #D8EB9A;
+      transform: translateY(-1px);
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="bg-gray-900 overflow-hidden select-none font-sans antialiased">
+<!-- BEGIN: Background Layer (Blurred & Dimmed Snapshot) -->
+<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none" data-purpose="background-context">
+
+<!-- Dark/dim overlay on top of blurred image -->
+<div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
+</div>
+<!-- END: Background Layer -->
+<!-- BEGIN: Modal Container -->
+<main class="relative z-10 flex min-h-screen items-center justify-center p-4 sm:p-6" data-purpose="modal-wrapper">
+<!-- BEGIN: Create Modal Box -->
+<div aria-labelledby="modal-title" aria-modal="true" class="relative w-full max-w-[540px] bg-white rounded-3xl shadow-modal p-7 md:p-8 flex flex-col" data-purpose="create-modal" role="dialog">
+<!-- BEGIN: Modal Header -->
+<header class="flex items-center justify-between mb-6 pb-1">
+<h2 class="text-xl md:text-2xl font-bold text-gray-900 tracking-tight" id="modal-title">
+          Criar
+        </h2>
+<!-- Close Button -->
+<button aria-label="Fechar" class="w-10 h-10 flex items-center justify-center rounded-full bg-[#F0F2F6] hover:bg-gray-200 text-gray-600 hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-400" onclick="console.log('Fechar modal')" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24">
+<line x1="18" x2="6" y1="6" y2="18"></line>
+<line x1="6" x2="18" y1="6" y2="18"></line>
+</svg>
+</button>
+</header>
+<!-- END: Modal Header -->
+<!-- BEGIN: Modal Actions / Options List -->
+<div class="space-y-4" data-purpose="options-list">
+<!-- Option 1: Publicação -->
+<button class="option-card w-full flex items-center p-4 sm:p-5 rounded-2xl border border-gray-100 bg-white shadow-sm text-left group focus:outline-none focus:ring-2 focus:ring-lime-400" data-purpose="create-post-option" type="button">
+<!-- Soft Lime Circular Icon Container -->
+<div class="w-14 h-14 rounded-full bg-[#F5FCD2] flex items-center justify-center shrink-0 mr-4 text-[#8CB71B] group-hover:scale-105 transition-transform">
+<!-- Camera / Media icon matching design -->
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+<rect height="18" rx="5" ry="5" width="20" x="2" y="3"></rect>
+<circle cx="12" cy="12" r="3.5"></circle>
+<circle cx="17.5" cy="6.5" fill="currentColor" r="0.8"></circle>
+</svg>
+</div>
+<!-- Option Text Details -->
+<div class="flex flex-col">
+<span class="text-base sm:text-lg font-bold text-gray-900 group-hover:text-black">Publicação</span>
+<span class="text-xs sm:text-sm text-gray-500 mt-0.5">Compartilhe fotos ou texto no feed</span>
+</div>
+</button>
+<!-- Option 2: Story -->
+<button class="option-card w-full flex items-center p-4 sm:p-5 rounded-2xl border border-gray-100 bg-white shadow-sm text-left group focus:outline-none focus:ring-2 focus:ring-lime-400" data-purpose="create-story-option" type="button">
+<!-- Soft Lime Circular Icon Container -->
+<div class="w-14 h-14 rounded-full bg-[#F5FCD2] flex items-center justify-center shrink-0 mr-4 text-[#8CB71B] group-hover:scale-105 transition-transform">
+<!-- Story (+) Icon matching screenshot -->
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<line x1="12" x2="12" y1="8" y2="16"></line>
+<line x1="8" x2="16" y1="12" y2="12"></line>
+</svg>
+</div>
+<!-- Option Text Details -->
+<div class="flex flex-col">
+<span class="text-base sm:text-lg font-bold text-gray-900 group-hover:text-black">Story</span>
+<span class="text-xs sm:text-sm text-gray-500 mt-0.5">Desaparece em 24 horas</span>
+</div>
+</button>
+</div>
+<!-- END: Modal Actions / Options List -->
+</div>
+<!-- END: Create Modal Box -->
+</main>
+<!-- END: Modal Container -->
+<!-- BEGIN: Interactive Logic -->
+<script data-purpose="event-handlers">
+    // Allows keyboard Escape key press to dismiss modal
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        console.log('Fechar modal via ESC');
+      }
+    });
+  </script>
+<!-- END: Interactive Logic -->
+
+
+</body></html>

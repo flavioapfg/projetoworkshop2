@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gooday - Entrar</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with forms plugin -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            app: {
+              bg: '#ECEDF5',
+              card: '#FFFFFF',
+              dark: '#12161C',
+              body: '#2A313C',
+              muted: '#5C6675',
+              input: '#ECEEF6',
+              purple: '#7C3AED',
+              purpleBorder: '#8B5CF6',
+            }
+          },
+          borderRadius: {
+            '4xl': '32px',
+          },
+          boxShadow: {
+            'card': '0 4px 20px -2px rgba(18, 22, 28, 0.05), 0 10px 30px -4px rgba(18, 22, 28, 0.04)',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-layout">
+    body {
+      background-color: #ECEDF5;
+      font-family: 'Inter', sans-serif;
+    }
+    /* Suavização de scroll e renderização de fontes */
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#ECEDF5] flex items-center justify-center p-4 md:p-8 xl:p-12 text-[#12161C]">
+<!-- BEGIN: MainContainer -->
+<main class="w-full max-w-[1360px] min-h-[740px] grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch" data-purpose="login-wrapper">
+<!-- BEGIN: VisualFeatureCard -->
+<!-- Card Esquerdo: Apresenta a fotografia e o badge de transmissão Ao vivo -->
+<section class="lg:col-span-7 xl:col-span-7 relative rounded-[32px] overflow-hidden min-h-[480px] lg:min-h-[740px] shadow-sm select-none" data-purpose="hero-media-card">
+<!-- Imagem de fundo principal utilizando o asset fornecido -->
+<img alt="Mulher jovem sorrindo em um restaurante saboreando uma refeição com hashis" class="absolute inset-0 w-full h-full object-cover object-left" loading="eager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChdJRDBkBeOeIN7awRJAOwRzMCfvttjVAWkegd2zUE5zbojgkL995kdnmirf2oJv_WX7UF5HKWK1xDmyYNPdkMlYIKFimn_Vfo2osn2vuEn9G4r-P9gatEK9aoBH_sItdUye7aZ1Y69YrbXbbZukIw1yw9yRPVjh4g4mYyVmIv8OSPBLFitZWTxdVCGJSzUYtkOUFMuhfxXu-o26vmasE-Sfb6z5NNk8gwUToXNroROF5k6qm1BjvbkCgqxc9lwOXx8is"/>
+<!-- Overlay sutil superior para melhor contraste do badge -->
+<div class="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/10 pointer-events-none"></div>
+<!-- Badge 'Ao vivo' no canto superior esquerdo -->
+<div class="absolute top-6 left-6 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-white shadow-sm" data-purpose="live-indicator">
+<span class="w-2.5 h-2.5 rounded-full bg-[#B4F000] ring-4 ring-[#B4F000]/30 animate-pulse"></span>
+<span class="text-xs font-medium tracking-wide">Ao vivo</span>
+</div>
+</section>
+<!-- END: VisualFeatureCard -->
+<!-- BEGIN: AuthCard -->
+<!-- Card Direito: Painel de autenticação, alternador de tema e rodapé informativo -->
+<section class="lg:col-span-5 xl:col-span-5 bg-white rounded-[32px] shadow-card flex flex-col justify-between p-8 sm:p-10 md:p-12 relative" data-purpose="login-form-card">
+<!-- Topo do Card: Botão de alternância de tema modo noturno -->
+<div class="flex justify-end w-full" data-purpose="card-header-actions">
+<button aria-label="Alternar modo escuro" class="w-10 h-10 rounded-full border border-[#E2E5EE] flex items-center justify-center text-[#707B8C] hover:text-[#12161C] hover:border-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500/20" type="button">
+<!-- Ícone da Lua minimalista -->
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+</button>
+</div>
+<!-- Centro do Card: Logo, Mensagem de boas-vindas e Formulário -->
+<div class="w-full max-w-[360px] mx-auto my-auto py-4" data-purpose="auth-content"><div class="text-center mb-5">
+<h1 class="text-4xl font-extrabold tracking-tight text-[#12161C] select-none font-sans">
+    Gooday
+  </h1>
+<p class="text-[14px] leading-relaxed text-[#2A313C] mt-2 max-w-[310px] mx-auto font-normal">
+    Crie sua conta. Respeite sua mente e trate seu corpo bem.
+  </p>
+</div>
+<form action="#" class="space-y-3" data-purpose="signup-form" method="POST" onsubmit="event.preventDefault();">
+<!-- Campo: Nome completo -->
+<div>
+<label class="sr-only" for="fullname">Como quer ser chamado?</label>
+<input autocomplete="name" class="w-full h-[48px] px-4 rounded-[14px] bg-[#ECEEF6] border-0 text-[#12161C] placeholder-[#8790A0] text-sm focus:ring-2 focus:ring-[#8B5CF6] focus:bg-white transition-all duration-150" id="fullname" name="fullname" placeholder="Como quer ser chamado?" required="" type="text" value="Marcos Vinícius"/>
+</div>
+<!-- Campo: Nome de usuário -->
+<div>
+<label class="sr-only" for="username">Nome de usuário</label>
+<input autocomplete="username" class="w-full h-[48px] px-4 rounded-[14px] bg-[#ECEEF6] border-0 text-[#12161C] placeholder-[#8790A0] text-sm focus:ring-2 focus:ring-[#8B5CF6] focus:bg-white transition-all duration-150" id="username" name="username" placeholder="@seu_usuario" required="" type="text" value="@marcos_v"/>
+</div>
+<!-- Campo: Email -->
+<div>
+<label class="sr-only" for="email">E-mail</label>
+<input autocomplete="email" class="w-full h-[48px] px-4 rounded-[14px] bg-[#ECEEF6] border-0 text-[#12161C] placeholder-[#8790A0] text-sm focus:ring-2 focus:ring-[#8B5CF6] focus:bg-white transition-all duration-150" id="email" name="email" placeholder="seu@email.com" required="" type="email" value="marcos.v@email.com"/>
+</div>
+<!-- Campo: Senha com toggle de visibilidade -->
+<div class="relative">
+<label class="sr-only" for="password">Crie uma senha segura</label>
+<input autocomplete="new-password" class="w-full h-[48px] pl-4 pr-11 rounded-[14px] bg-[#ECEEF6] border-0 text-[#12161C] placeholder-[#8790A0] text-sm focus:ring-2 focus:ring-[#8B5CF6] focus:bg-white transition-all duration-150 tracking-wider" id="password" name="password" placeholder="Crie uma senha segura" required="" type="password" value="••••••••••"/>
+<button aria-label="Alternar visibilidade da senha" class="absolute right-3 top-1/2 -translate-y-1/2 text-[#707B8C] hover:text-[#12161C] transition-colors p-1 focus:outline-none" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+<circle cx="12" cy="12" r="3"></circle>
+</svg>
+</button>
+</div>
+<!-- Checkbox: Termos e Política -->
+<div class="pt-1 pb-1">
+<label class="inline-flex items-start gap-2.5 cursor-pointer select-none">
+<input checked="" class="w-4 h-4 mt-0.5 rounded-[4px] border-0 bg-[#ECEEF6] text-[#7C3AED] focus:ring-[#8B5CF6] focus:ring-offset-0 transition-colors" name="terms" required="" type="checkbox"/>
+<span class="text-[12.5px] leading-snug text-[#424A56]">
+        Li e concordo com os <a class="text-[#12161C] font-medium hover:underline" href="#terms">Termos de Uso</a> e a <a class="text-[#12161C] font-medium hover:underline" href="#privacy">Política de Privacidade</a>.
+      </span>
+</label>
+</div>
+<!-- Botão Primário CTA de Criação de Conta -->
+<div class="pt-2">
+<button class="w-full h-[50px] rounded-full bg-[#E7FE8E] text-[#12161C] font-semibold text-[15px] hover:brightness-95 active:scale-[0.99] transition-all duration-150 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-[#12161C]/20 shadow-sm" type="submit">
+      Criar conta no Gooday
+    </button>
+</div>
+<!-- Alternar para Login -->
+<div class="text-center pt-2">
+<span class="text-[13px] text-[#5C6675]">Já tem uma conta? </span>
+<a class="text-[13px] font-semibold text-[#12161C] hover:text-[#7C3AED] hover:underline transition-colors" href="#login">
+      Entrar
+    </a>
+</div>
+</form></div>
+<!-- Rodapé: Mensagem Institucional -->
+<footer class="w-full pt-6 border-t border-[#EEF0F5] mt-8" data-purpose="card-footer">
+<p class="text-[12px] leading-relaxed text-[#6B7584] text-center max-w-[340px] mx-auto">Uma rede social onde viver bem vira conversa, comunidade e constância.</p>
+</footer>
+</section>
+<!-- END: AuthCard -->
+</main>
+<!-- END: MainContainer -->
+</body></html>
