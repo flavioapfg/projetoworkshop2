@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Story Viewer - Gooday</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] },
+          colors: { gooday: { lime: '#D4E938', dark: '#12151A' } },
+          borderRadius: { '4xl': '2rem' }
+        }
+      }
+    };
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style data-purpose="custom-layout">
+    .story-card-shadow { box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.08); }
+    .nav-arrow-btn { background: rgba(45, 48, 55, 0.65); backdrop-filter: blur(8px); transition: all 0.2s ease-in-out; }
+    .nav-arrow-btn:hover { background: rgba(65, 70, 80, 0.85); transform: scale(1.08); }
+    .glass-input { background: rgba(20, 22, 28, 0.55); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.12); }
+    .glass-reaction-btn { background: rgba(26, 29, 36, 0.65); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .glass-reaction-btn:hover { transform: scale(1.22); background: rgba(40, 44, 55, 0.85); }
+    .progress-bar-fill { animation: storyProgress 5s linear forwards; }
+    @keyframes storyProgress { 0% { width: 0%; } 100% { width: 100%; } }
+  </style>
+</head>
+<body class="bg-[#121316] font-sans antialiased text-white min-h-screen w-full flex items-center justify-center p-0 m-0 overflow-hidden select-none">
+<div class="fixed inset-0 bg-[#0a0c10]/80 backdrop-blur-md flex items-center justify-center z-50" data-purpose="story-modal-overlay">
+<main class="relative w-full max-w-[420px] h-[92vh] max-h-[760px] rounded-[30px] overflow-hidden story-card-shadow flex flex-col justify-between mx-auto" data-purpose="story-container">
+<div class="absolute inset-0 z-0 bg-[#1e232c]">
+<img alt="Story" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7yc2_fDoZiaBvZmSusxj-lbNdGKv9E8KG34uwGzXTCj8ppWiM5GDX7D6exWvtRSg-8oZsIo1AKOMNsSW8Oh9fttPAQkKsDxWaAwdUgvvjGQkSekPC6TplQcoC8uRJAsYOjirwYC-0HBh-BAFd0brff7PIjytHjKifBc6vI3Dzc1DtlNnm-XIFurrN_AMP292F58SKbt-1MiGD8W23w6r4CGHIhc7wq0qHIAXKIfsOJjrkIOlo5EKnoA"/>
+<div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/75 pointer-events-none"></div>
+</div>
+<header class="relative z-20 px-4 pt-3.5 pb-2" data-purpose="story-header">
+<div class="flex items-center gap-1.5 w-full mb-3.5"><div class="h-1 flex-1 bg-white/35 rounded-full overflow-hidden"><div class="h-full bg-white rounded-full progress-bar-fill"></div></div></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="relative w-10 h-10 rounded-full ring-2 ring-white/90 overflow-hidden shrink-0 shadow-md">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxKjil-mh8Z4SMegZlbPcOR-y5hpggu7tj_C1ZawfgwPB8YUoeWu7jUW3fAU5Do6y1gqZ-taADqL0nvmvFnkAWjT0rsW00AS-2axYY6UH08lz3-2d-VPe1FEEYOtMkPrm-BD5lvCHDKxV0qzEAyMr2tQALiZTB5hsiSFAglALnUd_m2sseIj-98Cj59X4qRbNr3s0AlnUGxA5VjBll45oWwk71AQbVV3AOI7zffA_Zgvq-38t5PqELfw"/>
+</div>
+<div class="flex flex-col drop-shadow"><span class="text-sm font-semibold text-white">Júlia Andrade</span><span class="text-xs text-white/75">há 2 h</span></div>
+</div>
+<button aria-label="Fechar Story" class="w-8 h-8 rounded-full bg-black/40 text-white flex items-center justify-center" data-purpose="close-button" type="button">×</button>
+</div>
+</header>
+<footer class="relative z-20 px-3.5 pb-4 pt-2" data-purpose="story-footer">
+<div class="flex items-center gap-2">
+<input class="glass-input w-full h-11 pl-4 pr-10 text-sm text-white placeholder-white/60 rounded-full border-none" placeholder="Responder..." type="text"/>
+</div>
+</footer>
+</main>
+</div>
+<script data-purpose="story-interaction">
+    document.addEventListener('DOMContentLoaded', () => {
+      const closeBtn = document.querySelector('[data-purpose="close-button"]');
+      if (closeBtn) closeBtn.addEventListener('click', () => console.log('Story viewer closed'));
+    });
+  </script>
+</body></html>
